@@ -12,6 +12,7 @@ const ROUTES = [
   , "/signup"
   , "/users"
   , "/users/ionicabizau"
+  , "ionicabizau/some-project"
 ];
 
 // Create the router
@@ -19,7 +20,15 @@ var router = Ruut({
     // Route: /
     "?": function (route) {
         console.log("This is the home page.", route);
+        return "This is the home page"
     }
+  , ":user": ["user-profile", {
+        ":project": {
+            "build": "build"
+          , "editor": [null, {
+            }, "editor_file" ]
+        }
+    }]
   , "blog": {
         // Route: /blog
         "?": "Blog homepage"
