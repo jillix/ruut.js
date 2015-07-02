@@ -4,13 +4,11 @@ var Routy = require("../lib");
 var router = Routy({
     // Route: /
     "?": function (route) {
-        // ...
-        var stream = self.flow(self._config.routes["?"]);
-        stream.write(null, route);
+        console.log("This is the home page.", route);
     }
   , "blog": {
         // Route: /blog
-      , "?": "Blog homepage"
+        "?": "Blog homepage"
         // Route: /blog/page/3
       , "page": {
             ":page": "Blog page"
