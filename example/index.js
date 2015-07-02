@@ -1,7 +1,21 @@
-var Routy = require("../lib");
+// Dependencies
+var Ruut = require("../lib");
 
+// Constants
+const ROUTES = [
+    "/"
+  , "/blog"
+  , "/blog/page/10"
+  , "/blog/some-article"
+  , "/blog/some-article/comments"
+  , "/blog/some-article/comments/my-comment"
+  , "/signup"
+  , "/users"
+  , "/users/ionicabizau"
+];
 
-var router = Routy({
+// Create the router
+var router = Ruut({
     // Route: /
     "?": function (route) {
         console.log("This is the home page.", route);
@@ -32,18 +46,7 @@ var router = Routy({
     }
 });
 
-const ROUTES = [
-    "/"
-  , "/blog"
-  , "/blog/page/10"
-  , "/blog/some-article"
-  , "/blog/some-article/comments"
-  , "/blog/some-article/comments/my-comment"
-  , "/signup"
-  , "/users"
-  , "/users/ionicabizau"
-];
-
+// Output routes
 ROUTES.forEach(function (c) {
     console.log(c, router(c));
 });
