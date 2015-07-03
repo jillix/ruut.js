@@ -80,7 +80,10 @@ it("should support more parameters in the same url", function (cb) {
 it("should support endless routes", function (cb) {
     Assert.deepEqual(router("/ionicabizau/my-project/editor/edit/some/file.js"), {
         data: "file-editor"
-      , params: {}
+      , params: {
+            user: "ionicabizau"
+          , project: "my-project"
+        }
     });
     cb();
 });
