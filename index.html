@@ -20,9 +20,8 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-
-        <script src="js/console.min.js"></script>
-        <script src="js/ruut.js.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script>
+        <script src="dist/ruut.min.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -46,21 +45,51 @@
             <div class="container">
                 <h2>Demo</h2>
                 <div class="row">
-                    <div class="col-lg-6"><pre></pre>
+                    <div class="col-lg-6"><pre id="editor">window._router = Ruut([
+    function (route) {
+        console.log("This is the home page.", route);
+        return "This is the home page"
+    }
+  , {
+       ":user": ["user-profile", {
+            ":project": {
+                "build": "build"
+              , "editor": [null, {}, "editor_file" ]
+            }
+        }]
+      , "blog": ["Blog homepage", {
+            "page": {
+                ":page": "Blog page"
+            }
+          , ":article": ["Blog article", {
+                "comments": ["comments", {
+                    ":id": "Current comment"
+                }]
+            }]
+        }]
+        // Route: /signup
+      , "signup": "Sign up route"
+      , "users": ["Users list", {
+            ":user": "User profile"
+        }]
+    }
+]);</pre>
                     </div>
                     <div class="col-lg-6">
-                        <div id="result" class="row">
-                            <div class="col-md-9">
-                                <input type="text" class="form-control">
+                        <div id="result">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" value="/users/ionicabizau">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-info pull-right">Run</button>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-info pull-right">Run</button>
-                            </div>
+                            <pre></pre>
                         </div>
                     </div>
                 </div>
                 <script>
-                    hljs.highlightBlock(document.querySelector("pre"));
                 </script>
                 <a class="btn btn-lg btn-danger btn-block" href="https://github.com/jillix/ruut.js/">Check out the documentation on GitHub.</a>
             </div>

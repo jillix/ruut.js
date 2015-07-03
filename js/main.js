@@ -1,33 +1,22 @@
 window.addEventListener("load", function () {
 
-    ConsoleJS.init({
-        selector: "#result"
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/chrome");
+    editor.setOptions({
+        maxLines: Infinity
     });
+    editor.setFontSize(18);
+    editor.getSession().setMode("ace/mode/javascript");
 
-    var w = new Worky("js/worker.js")
-      , w2 = new Worky("js/worker2.js")
+    var pre = document.querySelector("#result pre")
+      , input = document.querySelector("#result input")
       ;
 
-
-    // Listen for events from worker
-    w.on("some event", function (data) {
-        console.log("worker->window received (some event):", data);
-    }).on("hello world", function (data) {
-        console.log("worker->window received (hello world):", data);
-    });
-
-    // Emit something to the worker
-    console.log("window->worker (another event)");
-    w.emit("another event", {
-        "hello": "world"
-    });
-
-    // Listen for events from worker2
-    w2.on("some event", function (two, numbers) {
-        console.log("worker2->window received (some event):", two, numbers);
-    });
-
-    // Emit something to the second worker
-    console.log("window->worker2 (hello to worker2)");
-    w2.emit("hello to worker2", { magic: 42 });
+    function run() {
+        eval(editor.getValue());
+        pre.textContent = JSON.stringify(_router(input.value), null, 2);
+        hljs.highlightBlock(pre);
+    }
+    document.querySelector("#result button").addEventListener("click", run);
+    run();
 });
