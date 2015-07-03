@@ -15,7 +15,9 @@
 
 # ruut
 
-A simple and fast route parsing, supporting parameters and more.
+A tiny and fast route parsing library, supporting parameters and more.
+
+This module can be used on both server and client sides. For a demo using this on the client side see [the demo page](https://jillix.github.io/ruut.js).
 
 ## Installation
 
@@ -78,6 +80,7 @@ var router = Ruut([
 ROUTES.forEach(function (c) {
     console.log(c, router(c));
 });
+
 ```
 
 ## Documentation

@@ -1,7 +1,7 @@
 {
   "name": "ruut",
   "version": "1.0.0",
-  "description": "A simple and fast route parsing, supporting parameters and more.",
+  "description": "A tiny and fast route parsing library, supporting parameters and more.",
   "main": "lib/index.js",
   "directories": {
     "example": "example",
