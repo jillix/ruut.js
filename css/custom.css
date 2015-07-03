@@ -11,7 +11,7 @@ header {
 
 header, footer {
     color: white;
-    background: #d35400;
+    background: #34495e;
     background-image: url("background.png");
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.51);
 }
