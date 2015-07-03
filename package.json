@@ -1,0 +1,29 @@
+{
+  "name": "ruut",
+  "version": "1.0.0",
+  "description": "A simple and fast route parsing, supporting parameters and more.",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jillix/ruut.js.git"
+  },
+  "keywords": [
+    "route",
+    "parsing",
+    "parameters",
+    "url"
+  ],
+  "author": "jillix <contact@jillix.com> (http://jillix.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jillix/ruut.js/issues"
+  },
+  "homepage": "https://github.com/jillix/ruut.js"
+}
