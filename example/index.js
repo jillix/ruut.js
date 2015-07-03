@@ -12,48 +12,39 @@ const ROUTES = [
   , "/signup"
   , "/users"
   , "/users/ionicabizau"
-  , "ionicabizau/some-project"
+  , "/ionicabizau/my-project/editor/edit/some/file.js"
 ];
 
 // Create the router
-var router = Ruut({
-    // Route: /
-    "?": function (route) {
+var router = Ruut([
+    function (route) {
         console.log("This is the home page.", route);
         return "This is the home page"
     }
-  , ":user": ["user-profile", {
-        ":project": {
-            "build": "build"
-          , "editor": [null, {
-            }, "editor_file" ]
-        }
-    }]
-  , "blog": {
-        // Route: /blog
-        "?": "Blog homepage"
-        // Route: /blog/page/3
-      , "page": {
-            ":page": "Blog page"
-        }
-        // Route: /blog/some-article-slug
-      , ":article": {
-            "?": "Blog article"
-          , "comments": {
-                "?": "comments"
-              , ":id": "Current comment"
+  , {
+       ":user": ["user-profile", {
+            ":project": {
+                "build": "build"
+              , "editor": [null, {}, "editor_file" ]
             }
-        }
+        }]
+      , "blog": ["Blog homepage", {
+            "page": {
+                ":page": "Blog page"
+            }
+          , ":article": ["Blog article", {
+                "comments": ["comments", {
+                    ":id": "Current comment"
+                }]
+            }]
+        }]
+        // Route: /signup
+      , "signup": "Sign up route"
+      , "users": ["Users list", {
+            ":user": "User profile"
+        }]
     }
-    // Route: /signup
-  , "signup": "Sign up route"
-  , "users": {
-        // Route: /users
-        "?": "Users list"
-        // Route: /users/adioo
-      , ":user": "User profile"
-    }
-});
+]);
 
 // Output routes
 ROUTES.forEach(function (c) {
