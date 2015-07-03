@@ -13,9 +13,13 @@
 <!-- * * * Thanks! * * *                                                    -->
 <!---------------------------------------------------------------------------->
 
+![ruut](http://i.imgur.com/ccKgHk9.png)
+
 # ruut
 
 A tiny and fast route parsing library, supporting parameters and more.
+
+![ruut](http://i.imgur.com/VcdijUJ.jpg)
 
 This module can be used on both server and client sides. For a demo using this on the client side see [the demo page](https://jillix.github.io/ruut.js).
 
