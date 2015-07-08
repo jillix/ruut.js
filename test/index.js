@@ -87,3 +87,8 @@ it("should support endless routes", function (cb) {
     });
     cb();
 });
+
+it("should return null if the endless route is not configured", function (cb) {
+    Assert.equal(router("/users/ionicabizau/and-invalid-route"), null);
+    cb();
+});
