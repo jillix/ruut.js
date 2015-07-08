@@ -35,20 +35,6 @@ $ npm i ruut
 // Dependencies
 var Ruut = require("ruut");
 
-// Constants
-const ROUTES = [
-    "/"
-  , "/blog"
-  , "/blog/page/10"
-  , "/blog/some-article"
-  , "/blog/some-article/comments"
-  , "/blog/some-article/comments/my-comment"
-  , "/signup"
-  , "/users"
-  , "/users/ionicabizau"
-  , "/ionicabizau/my-project/editor/edit/some/file.js"
-];
-
 // Create the router
 var router = Ruut([
     function (route) {
@@ -80,10 +66,35 @@ var router = Ruut([
     }
 ]);
 
-// Output routes
-ROUTES.forEach(function (c) {
-    console.log(c, router(c));
-});
+console.log(router("/"));
+// => { data: 'This is the home page', params: {} }
+
+console.log(router("/blog"));
+// => { data: 'Blog homepage', params: {} }
+
+console.log(router("/blog/page/10"));
+// => { data: 'Blog page', params: { page: '10' } }
+
+console.log(router("/blog/some-article"));
+// => { data: 'Blog article', params: { article: 'some-article' } }
+
+console.log(router("/blog/some-article/comments"));
+// => { data: 'comments', params: { article: 'some-article' } }
+
+console.log(router("/blog/some-article/comments/my-comment"));
+// => { data: 'Current comment', params: { article: 'some-article', id: 'my-comment' } }
+
+console.log(router("/signup"));
+// => { data: 'Sign up route', params: {} }
+
+console.log(router("/users"));
+// => { data: 'Users list', params: {} }
+
+console.log(router("/users/ionicabizau"));
+// => { data: 'User profile', params: { user: 'ionicabizau' } }
+
+console.log(router("/ionicabizau/my-project/editor/edit/some/file.js"));
+// => { data: 'editor_file', params: { user: 'ionicabizau', project: 'my-project' } }
 
 ```
 
