@@ -1,6 +1,6 @@
 {
   "name": "ruut",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A tiny and fast route parsing library, supporting parameters and more.",
   "main": "lib/index.js",
   "directories": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/jillix/ruut.js",
   "blah": {
-      "h_img": "http://i.imgur.com/ccKgHk9.png",
-      "ex_img": "http://i.imgur.com/VcdijUJ.jpg"
+    "h_img": "http://i.imgur.com/ccKgHk9.png",
+    "ex_img": "http://i.imgur.com/VcdijUJ.jpg"
   }
 }
